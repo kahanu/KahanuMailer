@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Mailer Class Snippet</Title>
+      <Shortcut>mc</Shortcut>
+      <Description>Create the Mailer concrete class.</Description>
+    </Header>
+    <Snippet>
+      <Code Language="CSharp">
+        <![CDATA[public class $MailerName$Mailer : MailerBase<$MailerName$MailerContext>, I$MailerName$Mailer
+    {
+        #region ctors
+
+        public $MailerName$Mailer(ISmtpConfiguration configuration):base(configuration)
+        {
+            LayoutName = "_Layout";
+        }
+
+        #endregion
+
+        #region Public Methods
+
+        public MailMessage $ViewName$($MailerName$MailerContext context)
+        {
+            return Populate(m =>
+            {
+                m.ViewName = "$viewName$";
+                m.Subject = context.Subject;
+                m.To.AddRange(context.ToAddresses);
+                m.Body = BuildBody(context);
+                m.From.AddRange(context.From);
+            });
+        }
+
+        #endregion
+    }
+]]>
+      </Code>
+      <Declarations>
+        <Literal>
+          <ID>MailerName</ID>
+          <ToolTip>Enter the mailer name.</ToolTip>
+          <Default>MailerName</Default>
+        </Literal>
+        <Literal>
+          <ID>ViewName</ID>
+          <ToolTip>The name of the view.</ToolTip>
+          <Default>ViewName</Default>
+        </Literal>
+        <Literal>
+          <ID>viewName</ID>
+          <ToolTip>The name of the view in lower case.</ToolTip>
+          <Default>viewName</Default>
+        </Literal>
+      </Declarations>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CodeSnippets xmlns="http://schemas.microsoft.com/VisualStudio/2005/CodeSnippet">
+  <CodeSnippet Format="1.0.0">
+    <Header>
+      <Title>Kahanu Mailer Interface</Title>
+      <Shortcut>mi</Shortcut>
+      <Description>The C# Kahanu mailer interface.</Description>
+    </Header>
+    <Snippet>
+      <Code Language="CSharp">
+        <![CDATA[MailMessage $ViewName$($MailerName$MailerContext context);]]>
+      </Code>
+      <Declarations>
+        <Literal>
+          <ID>MailerName</ID>
+          <ToolTip>The name of the mailer class.</ToolTip>
+          <Default>MailerName</Default>
+        </Literal>
+        <Literal>
+          <ID>ViewName</ID>
+          <ToolTip>The name of the view.</ToolTip>
+          <Default>ViewName</Default>
+        </Literal>
+      </Declarations>
+    </Snippet>
+  </CodeSnippet>
+</CodeSnippets>
