@@ -12,6 +12,7 @@ namespace KahanuMailer
             MailboxAddress.Parse("no-reply@info.org")
         };
         public List<MimeEntity> AttachmentCollection { get; set; } = new List<MimeEntity>();
+        public List<LinkedResource> LinkedResources { get; set; } = new List<LinkedResource>();
 
     }
 }

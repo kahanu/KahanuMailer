@@ -56,22 +56,21 @@ namespace KahanuMailer
         /// </summary>
         /// <param name="context">The context that contains the values for the email message.</param>
         /// <returns>MimeEntity</returns>
+
         public MimeEntity BuildBody(T context)
         {
             string result;
+
+            var builder = new BodyBuilder();
+
             if (LayoutExists())
             {
-                result = ComposeBodyAndLayout(context);
+                result = ComposeBodyAndLayout(context, builder);
             }
             else
             {
-                result = NoLayout(context);
+                result = NoLayout(context, builder);
             }
-
-            var builder = new BodyBuilder
-            {
-                HtmlBody = result
-            };
 
             if (context.AttachmentCollection.Count > 0)
             {
@@ -81,13 +80,7 @@ namespace KahanuMailer
                 }
             }
 
-            //if (context.LinkedResources.Count() > 0)
-            //{
-            //    foreach (var link in context.LinkedResources)
-            //    {
-            //        builder.LinkedResources.Add(link);
-            //    }
-            //}
+            builder.HtmlBody = result;
 
             return builder.ToMessageBody();
         }
@@ -109,9 +102,16 @@ namespace KahanuMailer
             return File.Exists(layoutPath);
         }
 
-        private string ComposeBodyAndLayout(T context)
+        private string ComposeBodyAndLayout(T context, BodyBuilder builder)
         {
-            // Read partial template and register it
+            foreach (var link in context.LinkedResources)
+            {
+                var res = builder.LinkedResources.Add(link.Path);
+                res.ContentId = link.Cid;
+                Handlebars.RegisterTemplate(link.Name, link.Cid);
+            }
+
+            // Read partial template for the body and register it
             var templatePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Views\" + this.MailerName + @"\" + _message.ViewName.ToLower() + ".html");
             var source = File.ReadAllText(templatePath);
             Handlebars.RegisterTemplate("body", source);
@@ -130,8 +130,16 @@ namespace KahanuMailer
             return layoutTemplate(context);
         }
 
-        private string NoLayout(T context)
+        private string NoLayout(T context, BodyBuilder builder)
         {
+            foreach (var link in context.LinkedResources)
+            {
+                var res = builder.LinkedResources.Add(link.Path);
+                var cid = res.ContentId;
+                link.Cid = cid;
+                Handlebars.RegisterTemplate(link.Name, link.Cid);
+            }
+
             var templatePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"Views\" + this.MailerName + @"\" + _message.ViewName.ToLower() + ".html");
             var source = File.ReadAllText(templatePath);
             var template = Handlebars.Compile(source);
