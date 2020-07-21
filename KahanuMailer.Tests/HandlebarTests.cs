@@ -44,5 +44,6 @@ namespace KahanuMailer.Tests
 
             result.Should().Be(expected);
         }
+
     }
 }

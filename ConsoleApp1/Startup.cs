@@ -58,7 +58,7 @@ namespace ConsoleApp1
             List<LinkedResource> linkedResources = null;
             linkedResources = new List<LinkedResource>();
             linkedResources.Add(new LinkedResource { Name = "logoCid", Cid="techwizLogo", Path = @"C:\Users\king\source\repos\KahanuMailer\ConsoleApp1\Views\RegistrationMailer\techwiz-logo.png" });
-
+            linkedResources.Add(new LinkedResource { Name = "parakeetCid", Cid = "parakeet", Path = @"C:\Users\king\source\repos\KahanuMailer\ConsoleApp1\Views\RegistrationMailer\parakeet.png" });
 
             var context = new RegistrationMailerContext
             {
