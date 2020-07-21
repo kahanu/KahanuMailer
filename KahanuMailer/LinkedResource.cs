@@ -6,7 +6,7 @@
     public class LinkedResource
     {
         /// <summary>
-        /// The name of the Handlebars template reference in the template. Example: <img src="cid:{{ > logoCid }}" />
+        /// The name of the Handlebars template reference in the template. Example: &lt;img src="cid:{{ > logoCid }}" /&gt;
         /// </summary>
         public string Name { get; set; }
 
@@ -20,10 +20,10 @@
         /// <example>
         /// <code>
         /// Before compiling with the Handlebars template
-        /// <img src="cid:{{ > logoCid }}" />
+        /// &lt;img src="cid:{{ > logoCid }}" /&gt;
         /// 
         /// After compiling
-        /// <img src="cid:myCompanyLogo" />
+        /// &lt;img src="cid:myCompanyLogo" /&gt;
         /// </code>
         /// </example>
         /// </summary>
