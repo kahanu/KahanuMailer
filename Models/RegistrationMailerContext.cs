@@ -8,5 +8,6 @@ namespace Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string CustomerMessage { get; set; }
+        public string Guid { get; set; } 
     }
 }

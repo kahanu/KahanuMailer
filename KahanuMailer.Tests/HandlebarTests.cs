@@ -1,6 +1,7 @@
 using FluentAssertions;
 using HandlebarsDotNet;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace KahanuMailer.Tests
 {
@@ -8,7 +9,7 @@ namespace KahanuMailer.Tests
     public class HandlebarTests
     {
         [TestMethod]
-        public void registering_partials()
+        public void insert_img_template_with_cid_value()
         {
             string source =
                 @"<img src='cid:{{ > logoCid }}' />
