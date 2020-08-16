@@ -2,10 +2,10 @@
 {
     public interface ISmtpConfiguration
     {
-        string SmtpPassword { get; set; }
-        int SmtpPort { get; set; }
-        string SmtpServer { get; set; }
-        string SmtpUsername { get; set; }
+        string Password { get; set; }
+        int Port { get; set; }
+        string Server { get; set; }
+        string UserName { get; set; }
         bool UseAuthentication { get; set; }
     }
 }

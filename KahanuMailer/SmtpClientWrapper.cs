@@ -13,12 +13,12 @@ namespace KahanuMailer
             InnerSmtpClient.Authenticated += InnerSmtpClient_Authenticated;
 
             if (!InnerSmtpClient.IsConnected)
-                InnerSmtpClient.Connect(config.SmtpServer, config.SmtpPort);
+                InnerSmtpClient.Connect(config.Server, config.Port);
 
             if (config.UseAuthentication)
             {
                 if (!InnerSmtpClient.IsAuthenticated)
-                    InnerSmtpClient.Authenticate(config.SmtpUsername, config.SmtpPassword);
+                    InnerSmtpClient.Authenticate(config.UserName, config.Password);
             }
         }
 

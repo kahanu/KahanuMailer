@@ -4,6 +4,7 @@ using MimeKit;
 using Models;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
@@ -16,7 +17,7 @@ namespace ConsoleApp1
             this.mailer = mailer;
         }
 
-        public void Run()
+        public async Task Run()
         {
 
             var toAddresses = new List<MailboxAddress>();
@@ -84,7 +85,7 @@ namespace ConsoleApp1
 
             try
             {
-                mailer.Customer(context).SendAsync().Wait();
+                await mailer.Customer(context).SendAsync().ConfigureAwait(false);
                 Console.WriteLine("Sent email successfully!");
             }
             catch (Exception ex)

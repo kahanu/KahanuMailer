@@ -36,7 +36,7 @@ namespace KahanuMailer
         {
             await Task.Run(() =>
             {
-                smtpClient = smtpClient ?? GetSmtpClient();
+                smtpClient ??= GetSmtpClient();
                 smtpClient.SendAsync(this, userState);
             });
         }
