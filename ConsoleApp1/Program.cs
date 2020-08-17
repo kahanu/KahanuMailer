@@ -36,7 +36,6 @@ namespace ConsoleApp1
         static void RegisterServices(IConfiguration config)
         {
             var services = new ServiceCollection();
-            //services.AddSingleton<ISmtpConfiguration>(config.GetSection("SmtpConfiguration").Get<SmtpConfiguration>());
             services.AddScoped<IRegistrationMailer, RegistrationMailer>();
             services.AddScoped<Startup>();
 

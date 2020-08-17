@@ -55,7 +55,7 @@ This is an example on how to create the mailer and populate the context that con
             linkedResources.Add(new LinkedResource { Name = "logoCid", Cid="techwizLogo", Path = @"C:\Users\king\source\repos\KahanuMailer\ConsoleApp1\Views\RegistrationMailer\techwiz-logo.png" });
             linkedResources.Add(new LinkedResource { Name = "parakeetCid", Cid = "parakeet", Path = @"C:\Users\king\source\repos\KahanuMailer\ConsoleApp1\Views\RegistrationMailer\parakeet.png" });
 
-            // Create the context object the provides the data for the email template.
+            // Create the context object that provides the data for the email template.
             var context = new RegistrationMailerContext
             {
                 Now = DateTime.Now.ToString(),
