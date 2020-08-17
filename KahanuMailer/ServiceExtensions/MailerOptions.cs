@@ -29,10 +29,11 @@ namespace KahanuMailer.ServiceExtensions
         /// Use the database to get the Smtp configuration.
         /// </summary>
         /// <param name="options"></param>
-        public void UseDb(Action<DbOptions> options)
+        public void UseConfig(Action<DbOptions> options)
         {
             var dbOptions = new DbOptions();
             options(dbOptions);
+            Console.WriteLine("Using database");
 
             var connString = config.GetConnectionString(dbOptions.ConnectionStringName);
             ISmtpConfiguration smtpConfig = new SmtpConfiguration();

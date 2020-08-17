@@ -39,10 +39,10 @@ namespace ConsoleApp1
             //services.AddSingleton<ISmtpConfiguration>(config.GetSection("SmtpConfiguration").Get<SmtpConfiguration>());
             services.AddScoped<IRegistrationMailer, RegistrationMailer>();
             services.AddScoped<Startup>();
+
             services.AddKahanuMailer(config, options =>
             {
-                //options.UseConfig();
-                options.UseDb(db =>
+                options.UseConfig(db =>
                 {
                     db.ConnectionStringName = "SampleConnection";
                     db.SmtpConfigTableName = "SmtpConfiguration";
