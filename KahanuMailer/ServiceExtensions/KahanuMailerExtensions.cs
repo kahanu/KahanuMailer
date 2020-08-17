@@ -18,7 +18,6 @@ namespace KahanuMailer.ServiceExtensions
         {
             var opts = new MailerOptions(services, config);
             opts.UseConfig();
-            Console.WriteLine("Using appSettings");
 
             return services;
         }

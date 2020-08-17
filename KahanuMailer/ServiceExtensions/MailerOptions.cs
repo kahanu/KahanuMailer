@@ -33,7 +33,6 @@ namespace KahanuMailer.ServiceExtensions
         {
             var dbOptions = new DbOptions();
             options(dbOptions);
-            Console.WriteLine("Using database");
 
             var connString = config.GetConnectionString(dbOptions.ConnectionStringName);
             ISmtpConfiguration smtpConfig = new SmtpConfiguration();
