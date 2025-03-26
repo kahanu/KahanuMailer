@@ -39,14 +39,16 @@ namespace ConsoleApp1
             services.AddScoped<IRegistrationMailer, RegistrationMailer>();
             services.AddScoped<Startup>();
 
-            services.AddKahanuMailer(config, options =>
-            {
-                options.UseConfig(db =>
-                {
-                    db.ConnectionStringName = "SampleConnection";
-                    db.SmtpConfigTableName = "SmtpConfiguration";
-                });
-            });
+            services.AddKahanuMailer(config);
+
+            //services.AddKahanuMailer(config, options =>
+            //{
+            //    options.UseConfig(db =>
+            //    {
+            //        db.ConnectionStringName = "SampleConnection";
+            //        //db.SmtpConfigTableName = "SmtpConfiguration";
+            //    });
+            //});
 
             _serviceProvider = services.BuildServiceProvider(true);
         }

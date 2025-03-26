@@ -29,33 +29,33 @@ namespace ConsoleApp1
 
 
             // Begin Attachments code
-            var path = @"C:\Users\king\Pictures\Golf Courses\golfcourse.jpg";
-            var mimeType = MimeTypes.GetMimeType(path);
-            var contentType = ContentType.Parse(mimeType);
-            var imageAttachment = new MimePart(contentType)
-            {
-                Content = new MimeContent(File.OpenRead(path), ContentEncoding.Default),
-                ContentDisposition = new ContentDisposition(ContentDisposition.Attachment),
-                ContentTransferEncoding = ContentEncoding.Base64,
-                FileName = Path.GetFileName(path)
-            };
+            //var path = @"C:\Users\king\Pictures\Golf Courses\golfcourse.jpg";
+            //var mimeType = MimeTypes.GetMimeType(path);
+            //var contentType = ContentType.Parse(mimeType);
+            //var imageAttachment = new MimePart(contentType)
+            //{
+            //    Content = new MimeContent(File.OpenRead(path), ContentEncoding.Default),
+            //    ContentDisposition = new ContentDisposition(ContentDisposition.Attachment),
+            //    ContentTransferEncoding = ContentEncoding.Base64,
+            //    FileName = Path.GetFileName(path)
+            //};
 
-            var pdfPath = @"C:\Users\king\Documents\some.pdf";
-            mimeType = MimeTypes.GetMimeType(pdfPath);
-            contentType = ContentType.Parse(mimeType);
-            var pdfAttachment = new MimePart(contentType)
-            {
-                Content = new MimeContent(File.OpenRead(pdfPath), ContentEncoding.Default),
-                ContentDisposition = new ContentDisposition(ContentDisposition.Attachment),
-                ContentTransferEncoding = ContentEncoding.Base64,
-                FileName = Path.GetFileName(pdfPath)
-            };
+            //var pdfPath = @"C:\Users\king\Documents\some.pdf";
+            //mimeType = MimeTypes.GetMimeType(pdfPath);
+            //contentType = ContentType.Parse(mimeType);
+            //var pdfAttachment = new MimePart(contentType)
+            //{
+            //    Content = new MimeContent(File.OpenRead(pdfPath), ContentEncoding.Default),
+            //    ContentDisposition = new ContentDisposition(ContentDisposition.Attachment),
+            //    ContentTransferEncoding = ContentEncoding.Base64,
+            //    FileName = Path.GetFileName(pdfPath)
+            //};
 
             List<MimeEntity> attachments = null;
 
-            attachments = new List<MimeEntity>();
-            attachments.Add(imageAttachment);
-            attachments.Add(pdfAttachment);
+            //attachments = new List<MimeEntity>();
+            //attachments.Add(imageAttachment);
+            //attachments.Add(pdfAttachment);
 
             List<LinkedResource> linkedResources = null;
             linkedResources = new List<LinkedResource>();
