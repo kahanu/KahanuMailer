@@ -1,11 +1,11 @@
 # KahanuMailer
-An Html Mailer component for .Net Core 3.x inspired by MvcMailer.
+An Html Mailer component for .Net 8 inspired by MvcMailer.
 
 ## NuGet
 This feature will be coming soon.
 
 ## Overview
-The KahanuMailer is inspired by MvcMailer, but it has no dependency on ASP.NET MVC.  It can be used directly in a .Net Core 3.x application.
+The KahanuMailer is inspired by MvcMailer, but it has no dependency on ASP.NET MVC.  It can be used directly in a .Net 8 application.
 
 Like MvcMailer it is designed to be used with HTML view templates in a Views folder in the file system.  Mailer C# classes are created that encapsulate the logic for populating the templates with your own data.
 
